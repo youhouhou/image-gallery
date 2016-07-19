@@ -8,17 +8,22 @@
 	<h1>Snapshots</h1>
 	<ul>
 		<li>
-			<a href="images/dasheng.jpg" title="monkey king">MonkeyKing</a>
+			<a href="images/dasheng.jpg" onclick="showPic(this); return false;" title="monkey king">MonkeyKing</a>
 		</li>
 		<li>
-			<a href="images/city.jpg" title="a city">City</a>
+			<a href="images/city.jpg" onclick="showPic(this); return false;" title="a city">City</a>
 		</li>
 		<li>
-			<a href="images/flower.jpg" title="flower">Flower</a>
+			<a href="images/flower.jpg" onclick="showPic(this); return false;" title="flower">Flower</a>
 		</li>
 		<li>
-			<a href="images/night.jpg" title="city night">Night</a>
+			<a href="images/night.jpg" onclick="showPic(this); return false;" title="city night">Night</a>
 		</li>
 	</ul>
+
+
+	<img id="placeholder" src="images/placeholder3.png" alt="placeholder" style="width:500px;height:500px;">
+
+	<script scr="js/changepic.js"></script>
 </body>
 </html>
