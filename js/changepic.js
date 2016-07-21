@@ -11,6 +11,14 @@ function addLoadEvent(func){
 	}
 }
 
+function insertAfter(newElement,target){
+	var parent = target.parentNode;
+	if(parent.lastChild == target){
+		parent.appendChild(newElement);
+	}
+	parent.insertBefore(newElement,target.nextSibling);
+}
+
 //whichpic represent a element node
 function showPic(whichpic){
 	if(document.getElementById("description")){
@@ -25,8 +33,29 @@ function showPic(whichpic){
 	return true;
 }
 
+//create the image holder element
+function preparePlaceholder(){
+if (!document.createElement) return false;
+if (!document.createTextNode) return false;
+if (!document.getElementById) return false;
+var placeholder = document.createElement("img");
+placeholder.setAttribute("id","placeholder");
+placeholder.setAttribute("src","images/placeholder3.png");
+placeholder.setAttribute("alt","my image gallery");
+//create text node under the image
+var description = document.createElement("p");
+description.setAttribute("id","description");
+var desctext = document.createTextNode("Choose a image");
+description.appendChild(desctext);
+
+var gallery = document.getElementById("imagegallery");
+insertAfter(placeholder,gallery);
+insertAfter(description,placeholder);
+}
+
+
+
 // attach a function to the onload event
-window.onload = preparePics();
 function preparePics(){
 if(!document.getElementsByTagName||!document.getElementById) return false;
 if(!document.getElementById("imagegallery")) return false;
@@ -38,5 +67,10 @@ for(var i=0;i<links.length;i++){
 		}
  }
 }
+
+addLoadEvent(preparePlaceholder);
+addLoadEvent(preparePics);
+
+
 
 
